@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041307074628",
+    "project_id": "live4better-79385",
+    "storage_bucket": "live4better-79385.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041307074628:android:c1f15249e5453120aebc11",
+        "android_client_info": {
+          "package_name": "com.liveforbetter.live_for_better"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041307074628-vt5o6otga7fkfvc6lqukqqvqd7gt0bjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-iTBohOicqmCirKc409u9laABjGAFQtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041307074628-vt5o6otga7fkfvc6lqukqqvqd7gt0bjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

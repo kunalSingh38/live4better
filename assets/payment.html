@@ -1,0 +1,56 @@
+<!DOCTYPE html><html>
+<meta name="viewport" content="width=device-width">
+<head><title>RazorPay Web Payment</title></head>
+<body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+ const queryString=window.location.search;
+ const urlPara=new URLSearchParams(queryString);
+ const razorpay_order=urlPara.get("razorpay_order");
+ const amount=urlPara.get("amount");
+ 
+       var options = {
+         "key": "rzp_live_gsrRdTAL36LTCW",
+         // 'key': 'rzp_test_MhKrOdDQM8C8PL',
+          "name": "Live4Better",
+          "amount":  amount,
+          "order_id":razorpay_order.toString,
+          "description": "Foundation",
+        //   "image": "https://example.com/your_logo",
+          "handler": function (response){
+             window.parent.postMessage("SUCCESS","*");
+             window.parent.postMessage(response.razorpay_payment_id);   //2 
+            //  alert(response.razorpay_payment_id);
+
+
+
+
+          },    
+         //  "prefill": {        
+         //     "name": "",        
+         //     "email": "",
+         //     "contact": ""   
+         //   },   
+         //   "notes": {        
+         //     "address": "Autofy"    
+         //  },    
+         //  "theme": {
+         //     "color": "#DF0145"    
+         //  },
+          "modal": {
+            "ondismiss": function(){
+               window.parent.postMessage("MODAL_CLOSED","*");   //3
+            }
+          }
+       };
+       console.log(options);
+
+       var rzp1 = new Razorpay(options);
+       window.onload = function(e){  //1  
+          rzp1.open();
+          e.preventDefault();
+       }
+
+     </script>
+</body>
+</html>

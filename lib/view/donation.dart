@@ -668,16 +668,16 @@ class _DonationState extends State<Donation> {
                             print(response1.body);
                             if (jsonDecode(response1.body)['ErrorCode'] == 0) {
                               print(jsonDecode(response1.body));
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: ((context) => RazorPayWeb(
-                                          jsonDecode(response1.body)['Response']
-                                                  ['razorpay_order']
-                                              .toString(),
-                                          jsonDecode(response1.body)['Response']
-                                                  ['amount']
-                                              .toString()))));
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: ((context) => RazorPayWeb(
+                              //             jsonDecode(response1.body)['Response']
+                              //                     ['razorpay_order']
+                              //                 .toString(),
+                              //             jsonDecode(response1.body)['Response']
+                              //                     ['amount']
+                              //                 .toString()))));
                             }
                           } else {
                             var response1 =

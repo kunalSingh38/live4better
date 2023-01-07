@@ -363,7 +363,7 @@ class PrintReceiptPDF {
         bounds: const Rect.fromLTWH(50, 110, 500, 0),
       );
 
-      final List<int> bytes = document.save();
+      final List<int> bytes = document.save() as List<int>;
 
       document.dispose();
 

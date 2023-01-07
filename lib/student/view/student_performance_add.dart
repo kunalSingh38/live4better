@@ -672,13 +672,20 @@ class _StudentPerformanceAddState extends State<StudentPerformanceAdd> {
                                     if (marksheetFilePath.isNotEmpty) {
                                       if (kIsWeb) {
                                         request.fields['marksheet_file'] =
-                                            marksheetFilePath;
+                                            getBase64FileExtension(
+                                                    marksheetFilePath) +
+                                                marksheetFilePath;
                                       } else {
                                         request.fields['marksheet_file'] =
-                                            base64Encode(File(marksheetFilePath)
-                                                .readAsBytesSync());
+                                            getBase64FileExtension(base64Encode(
+                                                    File(marksheetFilePath)
+                                                        .readAsBytesSync())) +
+                                                base64Encode(
+                                                    File(marksheetFilePath)
+                                                        .readAsBytesSync());
                                       }
                                     }
+                                    print(request.fields['marksheet_file']);
 
                                     var response = await request.send();
                                     var respStr =
@@ -686,7 +693,8 @@ class _StudentPerformanceAddState extends State<StudentPerformanceAdd> {
 
                                     Navigator.of(context, rootNavigator: true)
                                         .pop();
-                                    print(request.fields);
+                                    print(respStr);
+
                                     if (jsonDecode(respStr)['ErrorCode'] == 0) {
                                       Fluttertoast.showToast(
                                           msg: "Performance Added");
@@ -822,4 +830,21 @@ class _StudentPerformanceAddState extends State<StudentPerformanceAdd> {
   }
 
   final ImagePicker _picker = ImagePicker();
+  String getBase64FileExtension(String base64String) {
+    print(base64String);
+    switch (base64String.characters.first) {
+      case '/':
+        return 'jpeg-';
+      case 'i':
+        return 'png-';
+      case 'R':
+        return 'gif-';
+      case 'U':
+        return 'webp-';
+      case 'J':
+        return 'pdf-';
+      default:
+        return 'unknown-';
+    }
+  }
 }

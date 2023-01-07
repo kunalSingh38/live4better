@@ -10,7 +10,9 @@ import 'package:live_for_better/login/views/login.dart';
 import 'package:live_for_better/login/views/signup.dart';
 import 'package:live_for_better/view/donation.dart';
 import 'package:live_for_better/view/donations_list.dart';
+import 'package:live_for_better/view/pdfView.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:video_player/video_player.dart';
 
 class WebViewIntro extends StatefulWidget {
   @override
@@ -18,6 +20,8 @@ class WebViewIntro extends StatefulWidget {
 }
 
 class _WebViewIntroState extends State<WebViewIntro> {
+  late VideoPlayerController _controller;
+  bool isPly = false;
   TextStyle header = GoogleFonts.roboto(
       fontWeight: FontWeight.w500, fontSize: 15, color: Color(0xff555555));
   GlobalKey aboutuskey = GlobalKey();
@@ -424,7 +428,15 @@ class _WebViewIntroState extends State<WebViewIntro> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    _controller = VideoPlayerController.asset('assets/video.mp4')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
+    // _controller.initialize().then((value) {
+    //   _controller.play();
+    // });
+    // _controller.play();
     // Timer.periodic(Duration(seconds: 10), (t) {
     //   if (currentIndex < banerData.length - 1) {
     //     setState(() {
@@ -549,6 +561,58 @@ class _WebViewIntroState extends State<WebViewIntro> {
                         SizedBox(
                           height: 50,
                         ),
+                        _controller.value.isInitialized
+                            ? Stack(
+                                children: [
+                                  AspectRatio(
+                                    aspectRatio: 16 / 9,
+                                    child: VideoPlayer(
+                                      _controller,
+                                    ),
+                                  ),
+                                  isPly
+                                      ? InkWell(
+                                          onTap: () {
+                                            // print(_controller.value.isPlaying);
+                                            if (isPly) {
+                                              _controller.pause();
+                                            } else {
+                                              _controller.play();
+                                            }
+                                            setState(() {
+                                              isPly = !isPly;
+                                            });
+                                          },
+                                          child: Icon(
+                                            Icons.pause_circle,
+                                            size: 80,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      : InkWell(
+                                          onTap: () {
+                                            // print(_controller.value.isPlaying);
+                                            if (isPly) {
+                                              _controller.pause();
+                                            } else {
+                                              _controller.play();
+                                            }
+                                            setState(() {
+                                              isPly = !isPly;
+                                            });
+                                          },
+                                          child: Icon(
+                                            Icons.play_circle,
+                                            size: 80,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                ],
+                              )
+                            : Container(),
+                        SizedBox(
+                          height: 50,
+                        ),
                         Stack(alignment: Alignment(0, 0.3), children: [
                           Column(
                             children: [
@@ -605,6 +669,44 @@ class _WebViewIntroState extends State<WebViewIntro> {
                                     ourReach.map((e) => data(e)).toList()),
                           )
                         ]),
+
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PdfViewer()));
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 200,
+                            // color: Colors.black,
+                            decoration: BoxDecoration(
+                              // border: Border.all(width: 2),
+                              image: DecorationImage(
+                                  image: AssetImage("assets/rectangle_2.png"),
+                                  fit: BoxFit.fill),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Project\nButterflies",
+                                      style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 36,
+                                          color: Color(0xff101828))),
+                                  Text("AY 2022-23",
+                                      style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 18,
+                                          color: Color(0xff101828))),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                         Container(
                           key: impackStory,
                           color: Color(0xffFEF8F8),

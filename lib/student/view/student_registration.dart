@@ -2920,24 +2920,37 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'student_profile_pic'] =
-                                                profilePath;
+                                                getBase64FileExtension(
+                                                        profilePath) +
+                                                    profilePath;
                                           } else {
                                             request.fields[
                                                     'student_profile_pic'] =
-                                                base64Encode(File(profilePath)
-                                                    .readAsBytesSync());
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                profilePath)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(
+                                                        File(profilePath)
+                                                            .readAsBytesSync());
                                           }
                                         }
                                         if (adharCardFilePathFront.isNotEmpty) {
                                           if (kIsWeb) {
                                             request.fields[
                                                     'student_adhaar_file'] =
-                                                adharCardFilePathFront;
+                                                getBase64FileExtension(
+                                                        adharCardFilePathFront) +
+                                                    adharCardFilePathFront;
                                           } else {
                                             request.fields[
                                                     'student_adhaar_file'] =
-                                                base64Encode(
-                                                    File(adharCardFilePathFront)
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                adharCardFilePathFront)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            adharCardFilePathFront)
                                                         .readAsBytesSync());
                                           }
                                         }
@@ -2945,12 +2958,18 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'student_adhaar_file_back'] =
-                                                adharCardFilePathBack;
+                                                getBase64FileExtension(
+                                                        adharCardFilePathBack) +
+                                                    adharCardFilePathBack;
                                           } else {
                                             request.fields[
                                                     'student_adhaar_file_back'] =
-                                                base64Encode(
-                                                    File(adharCardFilePathBack)
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                adharCardFilePathBack)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            adharCardFilePathBack)
                                                         .readAsBytesSync());
                                           }
                                         }
@@ -2960,13 +2979,19 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'mother_death_certificate'] =
-                                                motherDeathCertificatePath;
+                                                getBase64FileExtension(
+                                                        motherDeathCertificatePath) +
+                                                    motherDeathCertificatePath;
                                           } else {
                                             request.fields[
                                                     'mother_death_certificate'] =
-                                                base64Encode(File(
-                                                        motherDeathCertificatePath)
-                                                    .readAsBytesSync());
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                motherDeathCertificatePath)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            motherDeathCertificatePath)
+                                                        .readAsBytesSync());
                                           }
                                         }
 
@@ -2975,13 +3000,19 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'mother_adhaar_file'] =
-                                                motherAdharCardFilePathFront;
+                                                getBase64FileExtension(
+                                                        motherAdharCardFilePathFront) +
+                                                    motherAdharCardFilePathFront;
                                           } else {
                                             request.fields[
                                                     'mother_adhaar_file'] =
-                                                base64Encode(File(
-                                                        motherAdharCardFilePathFront)
-                                                    .readAsBytesSync());
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                motherAdharCardFilePathFront)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            motherAdharCardFilePathFront)
+                                                        .readAsBytesSync());
                                           }
                                         }
                                         if (motherAdharCardFilePathBack
@@ -2989,13 +3020,19 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'mother_adhaar_file_back'] =
-                                                motherAdharCardFilePathBack;
+                                                getBase64FileExtension(
+                                                        motherAdharCardFilePathBack) +
+                                                    motherAdharCardFilePathBack;
                                           } else {
                                             request.fields[
                                                     'mother_adhaar_file_back'] =
-                                                base64Encode(File(
-                                                        motherAdharCardFilePathBack)
-                                                    .readAsBytesSync());
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                motherAdharCardFilePathBack)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            motherAdharCardFilePathBack)
+                                                        .readAsBytesSync());
                                           }
                                         }
                                         if (fatherDeathCertificatePath
@@ -3003,13 +3040,19 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'father_death_certificate'] =
-                                                fatherDeathCertificatePath;
+                                                getBase64FileExtension(
+                                                        fatherDeathCertificatePath) +
+                                                    fatherDeathCertificatePath;
                                           } else {
                                             request.fields[
                                                     'father_death_certificate'] =
-                                                base64Encode(File(
-                                                        fatherDeathCertificatePath)
-                                                    .readAsBytesSync());
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                fatherDeathCertificatePath)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            fatherDeathCertificatePath)
+                                                        .readAsBytesSync());
                                           }
                                         }
                                         if (fatherAdharCardFilePathFront
@@ -3017,13 +3060,19 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'father_adhaar_file'] =
-                                                fatherAdharCardFilePathFront;
+                                                getBase64FileExtension(
+                                                        fatherAdharCardFilePathFront) +
+                                                    fatherAdharCardFilePathFront;
                                           } else {
                                             request.fields[
                                                     'father_adhaar_file'] =
-                                                base64Encode(File(
-                                                        fatherAdharCardFilePathFront)
-                                                    .readAsBytesSync());
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                fatherAdharCardFilePathFront)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            fatherAdharCardFilePathFront)
+                                                        .readAsBytesSync());
                                           }
                                         }
                                         if (fatherAdharCardFilePathBack
@@ -3031,13 +3080,19 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                           if (kIsWeb) {
                                             request.fields[
                                                     'father_adhaar_file_back'] =
-                                                fatherAdharCardFilePathBack;
+                                                getBase64FileExtension(
+                                                        fatherAdharCardFilePathBack) +
+                                                    fatherAdharCardFilePathBack;
                                           } else {
                                             request.fields[
                                                     'father_adhaar_file_back'] =
-                                                base64Encode(File(
-                                                        fatherAdharCardFilePathBack)
-                                                    .readAsBytesSync());
+                                                getBase64FileExtension(
+                                                        base64Encode(File(
+                                                                fatherAdharCardFilePathBack)
+                                                            .readAsBytesSync())) +
+                                                    base64Encode(File(
+                                                            fatherAdharCardFilePathBack)
+                                                        .readAsBytesSync());
                                           }
                                         }
 
@@ -3414,11 +3469,16 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                   if (studentBankDetailsCheckPath.isNotEmpty) {
                                     if (kIsWeb) {
                                       request.fields['student_bank_cheque'] =
-                                          studentBankDetailsCheckPath;
+                                          getBase64FileExtension(
+                                                  studentBankDetailsCheckPath) +
+                                              studentBankDetailsCheckPath;
                                     } else {
                                       request.fields['student_bank_cheque'] =
-                                          base64Encode(
-                                              File(studentBankDetailsCheckPath)
+                                          getBase64FileExtension(base64Encode(
+                                                  File(studentBankDetailsCheckPath)
+                                                      .readAsBytesSync())) +
+                                              base64Encode(File(
+                                                      studentBankDetailsCheckPath)
                                                   .readAsBytesSync());
                                     }
                                   }
@@ -3470,6 +3530,24 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                           )
                         ]))
               ]))));
+
+  String getBase64FileExtension(String base64String) {
+    switch (base64String.characters.first) {
+      case '/':
+        return 'jpeg-';
+      case 'i':
+        return 'png-';
+      case 'R':
+        return 'gif-';
+      case 'U':
+        return 'webp-';
+      case 'J':
+        return 'pdf-';
+      default:
+        return 'unknown-';
+    }
+  }
+
   Widget studentSchoolDetails() => Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Form(
@@ -3998,11 +4076,16 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                     if (schoolBankDetailsCheckPath.isNotEmpty) {
                                       if (kIsWeb) {
                                         request.fields['school_fee_secular'] =
-                                            schoolBankDetailsCheckPath;
+                                            getBase64FileExtension(
+                                                    schoolBankDetailsCheckPath) +
+                                                schoolBankDetailsCheckPath;
                                       } else {
                                         request.fields['school_fee_secular'] =
-                                            base64Encode(
-                                                File(schoolBankDetailsCheckPath)
+                                            getBase64FileExtension(base64Encode(
+                                                    File(schoolBankDetailsCheckPath)
+                                                        .readAsBytesSync())) +
+                                                base64Encode(File(
+                                                        schoolBankDetailsCheckPath)
                                                     .readAsBytesSync());
                                       }
                                     }
@@ -4537,7 +4620,10 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                                       school_fee_recipt_list[i]
                                                               ['new']
                                                           .toString(),
-                                                  "image":
+                                                  "image": getBase64FileExtension(
+                                                          school_fee_recipt_list[
+                                                                  i]['image']
+                                                              .toString()) +
                                                       school_fee_recipt_list[i]
                                                           ['image'],
                                                 });
@@ -4553,18 +4639,21 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                                       school_fee_recipt_list[i]
                                                               ['new']
                                                           .toString(),
-                                                  "image": school_fee_recipt_list[
-                                                              i]['new'] ==
+                                                  "image": school_fee_recipt_list[i]
+                                                              ['new'] ==
                                                           true
-                                                      ? base64Encode(File(
-                                                              school_fee_recipt_list[
-                                                                          i]
+                                                      ? getBase64FileExtension(base64Encode(
+                                                              File(school_fee_recipt_list[i]['image'].toString())
+                                                                  .readAsBytesSync())) +
+                                                          base64Encode(File(school_fee_recipt_list[i]['image'].toString())
+                                                              .readAsBytesSync())
+                                                      : getBase64FileExtension(
+                                                              school_fee_recipt_list[i]
                                                                       ['image']
-                                                                  .toString())
-                                                          .readAsBytesSync())
-                                                      : school_fee_recipt_list[
-                                                              i]['image']
-                                                          .toString(),
+                                                                  .toString()) +
+                                                          school_fee_recipt_list[i]
+                                                                  ['image']
+                                                              .toString(),
                                                 });
                                               }
                                             }
@@ -4608,6 +4697,7 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                                             "expense_fee": tempExpenseFeeL
                                                 .join(",")
                                                 .toString(),
+                                            "receiptMulti": sentReceipt,
                                           }));
                                           var response = await http.post(
                                               Uri.parse(
@@ -5201,11 +5291,13 @@ class _StudentRegistrationFormState extends State<StudentRegistrationForm>
                               if (result != null) {
                                 var sel = result.files.first;
                                 var f = sel.bytes;
+
                                 switch (selectionFor) {
                                   case "SPP":
                                     setState(() {
                                       profilePath = base64Encode(f!);
                                     });
+
                                     break;
                                   case "SACF":
                                     setState(() {

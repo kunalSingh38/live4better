@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:html' if (dart.library.html) 'dart:html' as html;
 import 'dart:ui' as ui;
-// conditional import
+// // conditional import
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:live_for_better/constants.dart';
 import 'package:live_for_better/view/UiFake.dart'
@@ -105,7 +105,7 @@ class SaveFilehelper {
   }
 
   void DownloadForWeb(fileName, bytes, fileExtension) {
-    //Comment these for mobile application
+    // Comment these for mobile application
 
     html.AnchorElement(
         href:
